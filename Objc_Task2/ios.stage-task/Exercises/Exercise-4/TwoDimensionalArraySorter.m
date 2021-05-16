@@ -30,11 +30,11 @@
     [resultArrayString sortUsingSelector:@selector(compare:)];
     NSArray *reversResultArrayString = [[resultArrayString reverseObjectEnumerator] allObjects];
     
-    [sortedResultArray addObjectsFromArray: resultArrayNumber];
-    
-    if (resultArrayNumber.count != 0) {
-        [sortedResultArray addObjectsFromArray: reversResultArrayString];
+    if ((resultArrayNumber.count != 0) && (resultArrayString.count != 0)) {
+        [sortedResultArray addObjectsFromArray: @[resultArrayNumber]];
+        [sortedResultArray addObjectsFromArray: @[reversResultArrayString]];
     } else {
+        [sortedResultArray addObjectsFromArray: resultArrayNumber];
         [sortedResultArray addObjectsFromArray: resultArrayString];
     }
     
